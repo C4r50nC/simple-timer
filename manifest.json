@@ -15,5 +15,6 @@
         },
         "default_title": "Simple Timer",
         "default_popup": "popup.html"
-    }
+    },
+    "options_page": "options.html"
 }
