@@ -13,5 +13,17 @@ chrome.alarms.onAlarm.addListener((alarm) => {
     chrome.action.setBadgeText({
       text: `${timeInSeconds + 1}`,
     });
+
+    chrome.storage.sync.get(["notificationTimeInSeconds"], (res) => {
+      const defaultNotificationTimeInSeconds = 300;
+      const notificationTimeInSeconds =
+        res.notificationTimeInSeconds ?? defaultNotificationTimeInSeconds;
+      if (timeInSeconds % notificationTimeInSeconds == 0) {
+        this.registration.showNotification("Simple Timer", {
+          body: `${notificationTimeInSeconds} seconds have passed`,
+          icon: "icon.png",
+        });
+      }
+    });
   });
 });
