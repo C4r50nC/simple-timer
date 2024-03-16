@@ -23,7 +23,10 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       const defaultNotificationTimeInSeconds = 300;
       const notificationTimeInSeconds =
         res.notificationTimeInSeconds ?? defaultNotificationTimeInSeconds;
-      if (timeInSeconds % notificationTimeInSeconds == 0) {
+      if (
+        timeInSeconds % notificationTimeInSeconds === 0 &&
+        timeInSeconds !== 0
+      ) {
         this.registration.showNotification("Simple Timer", {
           body: `${notificationTimeInSeconds} seconds have passed`,
           icon: "icon.png",
