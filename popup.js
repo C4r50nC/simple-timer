@@ -14,3 +14,26 @@ chrome.storage.sync.get(["name"], (res) => {
   const name = res.name ?? "???";
   nameElement.textContent = `Your name is: ${name}`;
 });
+
+const startBtn = document.getElementById("start-btn");
+const stopBtn = document.getElementById("stop-btn");
+const resetBtn = document.getElementById("reset-btn");
+
+startBtn.addEventListener("click", () => {
+  chrome.storage.local.set({
+    isRunning: true,
+  });
+});
+
+stopBtn.addEventListener("click", () => {
+  chrome.storage.local.set({
+    isRunning: false,
+  });
+});
+
+resetBtn.addEventListener("click", () => {
+  chrome.storage.local.set({
+    timerInSeconds: 0,
+    isRunning: false,
+  });
+});
