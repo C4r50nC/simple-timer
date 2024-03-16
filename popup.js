@@ -41,4 +41,8 @@ resetBtn.addEventListener("click", () => {
     timerInSeconds: 0,
     isRunning: false,
   });
+
+  chrome.action.setBadgeText({
+    text: "0",
+  });
 });
