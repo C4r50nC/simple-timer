@@ -1,3 +1,3 @@
 # Simple Timer
 
-A simple timer browser extension.
+A simple timer Chrome extension.
